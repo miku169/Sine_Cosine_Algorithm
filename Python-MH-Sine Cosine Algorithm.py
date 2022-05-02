@@ -49,7 +49,7 @@ def update_position(position, destination, r1 = 2, min_values = [-5,-5], max_val
             r3 = 2*(int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1))
             r4 = int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1)          
             if (r4 < 0.5):
-                position[i,j] = np.clip((position[i,j] + (r1*math.sin(r2)*abs(r3*destination[j] - position[i,j]))),min_values[j],max_values[j])
+                position[i,j] = np.clip((position[i,j] + (r1*math.sin(r2)*abs(r3*destination[j] - position[i,j]))),min_values[j],max_values[j])#这种粗暴的越界控制是否可以改进
             else:
                 position[i,j] = np.clip((position[i,j] + (r1*math.cos(r2)*abs(r3*destination[j] - position[i,j]))),min_values[j],max_values[j])              
         position[i,-1] = target_function(position[i,0:position.shape[1]-1])
