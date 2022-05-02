@@ -31,7 +31,13 @@ def initial_position(solutions = 5, min_values = [-5,-5], max_values = [5,5], ta
     return position
 
 # Function: Updtade Position
-def update_position(position, destination, r1 = 2, min_values = [-5,-5], max_values = [5,5], target_function = target_function):   
+def update_position(position, destination, r1 = 2, min_values = [-5,-5], max_values = [5,5], target_function = target_function): 
+    '''
+    position: 种群位置
+    destination：第t次迭代的最优解
+    min_values，max_values:lb,ub
+    target_function:目标函数
+    '''
     for i in range(0, position.shape[0]):
         for j in range (0, len(min_values)):         
             r2 = 2*math.pi*(int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1))
