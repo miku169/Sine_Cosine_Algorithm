@@ -32,7 +32,7 @@ def initial_position(solutions = 5, min_values = [-5,-5], max_values = [5,5], ta
 
 # Function: Updtade Position
 def update_position(position, destination, r1 = 2, min_values = [-5,-5], max_values = [5,5], target_function = target_function): 
-    '''
+    """
     Parameters
     ----------
     position: 种群位置
@@ -42,7 +42,7 @@ def update_position(position, destination, r1 = 2, min_values = [-5,-5], max_val
     Returns
     -------
     position: 种群位置
-    '''
+    """
     for i in range(0, position.shape[0]):
         for j in range (0, len(min_values)):         
             r2 = 2*math.pi*(int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1))
